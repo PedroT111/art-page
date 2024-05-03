@@ -7,17 +7,17 @@ import { Model } from 'mongoose';
 @Injectable()
 export class UserService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
-  create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDto) {
     const newUser = new this.userModel(createUserDto);
-    return newUser.save();
+    return await newUser.save();
   }
 
   findAll() {
     return `This action returns all user`;
   }
 
-  findOne(atributte: string, value: any): Promise<User | null> {
-    return this.userModel.findOne({ [atributte]: value });
+  async findOne(atributte: string, value: any): Promise<User | null> {
+    return await this.userModel.findOne({ [atributte]: value });
   }
 
   remove(id: number) {
