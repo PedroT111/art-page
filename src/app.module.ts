@@ -3,8 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
-import { UserModule } from './user/user.module';
-import { ArtWorkModule } from './art-work/art-work.module';
+import { UserModule } from './modules/user/user.module';
+import { ArtWorkModule } from './modules/art-work/art-work.module';
+import { CategoryModule } from './modules/category/category.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -15,6 +17,8 @@ import { ArtWorkModule } from './art-work/art-work.module';
     DatabaseModule,
     UserModule,
     ArtWorkModule,
+    CategoryModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
